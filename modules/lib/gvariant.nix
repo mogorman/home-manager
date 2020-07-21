@@ -111,6 +111,12 @@ in rec {
       __toString = self: "'${escape [ "'" ] self.value}'";
     };
 
+  mkRawString = v:
+    mkPrimitive type.string v // {
+      __toString = self: "${escape [ "'" ] self.value}";
+    };
+
+
   mkObjectpath = v:
     mkPrimitive type.string v // {
       __toString = self: "objectpath '${escape [ "'" ] self.value}'";
