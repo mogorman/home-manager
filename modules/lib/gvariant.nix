@@ -113,7 +113,7 @@ in rec {
 
   mkRawString = v:
     mkPrimitive type.string v // {
-      __toString = self: "${escape [ "'" ] self.value}";
+      __toString = self: self.value;
     };
 
 
